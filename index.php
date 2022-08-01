@@ -2,17 +2,8 @@
 
 require_once "functions.php";
 
-$db = new PDO('mysql:host=db; dbname=CollectionGB', 'root', 'password');
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-$query = $db->prepare("SELECT `bookName`, `country`, `bookRating`, `destinationRating`, `year` FROM `guidebooks`;");
-$query->execute();
-
-$books = $query->fetchAll();
-
-// echo '<pre>';
-// var_dump($books);
-// echo '</pre>';
-
+$db = connectDB();
+$books = fetchAllDB($db);
 
 echo displayBooks($books);
 
