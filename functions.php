@@ -1,11 +1,23 @@
 <?php
 
+
+/**
+ * Connects to database
+ *
+ * @return PDO
+ */
 function connectDB(): PDO {
 $db = new PDO('mysql:host=db; dbname=CollectionGB', 'root', 'password');
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 return $db;
 }
 
+/**
+ * Returns all data specified within database query
+ *
+ * @param [type] $db
+ * @return array
+ */
 function fetchAllDB($db): array {
 $query = $db->prepare("SELECT `bookName`, `country`, `bookRating`, `destinationRating`, `year` FROM `guidebooks`;");
 $query->execute();
