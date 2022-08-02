@@ -6,12 +6,46 @@ html {
 	scroll-behavior: smooth;
 }
 
-.bookGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+body {
+	margin: 0;
+    font-family: 'Uchen', serif;
 }
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #30332E;
+    padding: 20px 150px;
+    color: white;
+}
+
+main {
+	background-color: #d0d1d3;
+	width: 100%;
+	height: 700px;
+}
 img {
     height: 200px;
     width: auto;
 }
+
+.gridContainer {
+    padding: 50px, 30px;
+}
+
+.bookGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* margin-left: 100px; */
+    
+
+}
+
+.bookContainer {
+    text-align: center;
+    padding-top: 50px;
+    background-color: #9bc1bc;
+}
+
+
+

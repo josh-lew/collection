@@ -42,7 +42,7 @@ function displayBooks(array $books) {
         
         foreach ($books as $book) {
             
-            $result .= '<p><img class="gBookImg" src="' . $book['imgURL'] .'"></p>';
+            $result .= '<div class="bookContainer"><p><img class="gBookImg" src="' . $book['imgURL'] .'"></p>';
             $result .= '<p>Name: ' . $book['bookName'] . '</p>';
             $result .= '<p>Country: ' . $book['country'] . '</p>';
             $result .= '<p>Book Rating: ' . $book['bookRating'] . '</p>';
