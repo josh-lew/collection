@@ -54,3 +54,59 @@ function displayBooks(array $books) {
     }
     
 }
+
+function validateGuidebook($guidebook) {
+    if (strlen($guidebook) <= 50) {
+        filter_var($guidebook, FILTER_UNSAFE_RAW);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateCountry(string $country) {
+    if(strlen($country) <= 20 ) {
+        filter_var($country, FILTER_UNSAFE_RAW);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateBookYear($year) {
+    if ($year >= 1850 && $year <= 2022) {
+        filter_var($year, FILTER_VALIDATE_INT);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateBookRating($bookRating) {
+    if ($bookRating <=5 && $bookRating > 0) {
+        filter_var($bookRating, FILTER_VALIDATE_INT);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateDestinationRating($destinationRating) {
+    if ($destinationRating <=5 && $destinationRating > 0) {
+        filter_var($destinationRating, FILTER_VALIDATE_INT);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateURL($URL) {
+    if (strlen ($URL) < 1000) {
+        filter_var($URL, FILTER_VALIDATE_URL);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
