@@ -29,9 +29,6 @@ img {
     width: auto;
 }
 
-.gridContainer {
-    padding: 50px, 30px;
-}
 
 .bookGrid {
     display: grid;
