@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.8.3-MariaDB-1:10.8.3+maria~jammy)
 # Database: CollectionGB
-# Generation Time: 2022-08-01 09:45:46 +0000
+# Generation Time: 2022-08-02 09:43:17 +0000
 # ************************************************************
 
 
@@ -27,6 +27,7 @@ DROP TABLE IF EXISTS `guidebooks`;
 
 CREATE TABLE `guidebooks` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `imgURL` varchar(1000) NOT NULL DEFAULT '',
   `bookName` varchar(50) NOT NULL DEFAULT '',
   `country` varchar(20) NOT NULL DEFAULT '',
   `bookRating` tinyint(1) unsigned NOT NULL,
@@ -38,16 +39,16 @@ CREATE TABLE `guidebooks` (
 LOCK TABLES `guidebooks` WRITE;
 /*!40000 ALTER TABLE `guidebooks` DISABLE KEYS */;
 
-INSERT INTO `guidebooks` (`id`, `bookName`, `country`, `bookRating`, `destinationRating`, `year`)
+INSERT INTO `guidebooks` (`id`, `imgURL`, `bookName`, `country`, `bookRating`, `destinationRating`, `year`)
 VALUES
-	(1,'Fontainebleau Fun Bloc','France ',4,5,'2012'),
-	(2,'Kalymnos Rock Climbing','Greece',5,5,'2015'),
-	(3,'Chulilla Climbing Guide','Spain',2,4,'2018'),
-	(4,'Margalef','Spain',3,5,'2017'),
-	(5,'Squamish Bouldering','Canada',5,5,'2014'),
-	(6,'North Wales Bouldering ','Wales ',4,4,'2017'),
-	(7,'South Wales Sport Climbing','Wales',3,3,'2016'),
-	(8,'South Wales Bouldering','Wales',4,3,'2022');
+	(1,'https://images-na.ssl-images-amazon.com/images/I/61hGG71AzHL.jpg','Fontainebleau Fun Bloc','France ',4,5,'2012'),
+	(2,'https://images-na.ssl-images-amazon.com/images/I/71fvxHfh-+L.jpg','Kalymnos Rock Climbing','Greece',5,5,'2015'),
+	(3,'https://imgcdn.ukc2.com/i/277482?fm=jpg&time=1555251300&dpr=1&w=600&s=006ec41c9cfad2405193d3a20d1d257c','Chulilla Climbing Guide','Spain',2,4,'2018'),
+	(4,'https://static.tildacdn.com/tild3864-6438-4530-b831-313532626630/Portada_guia_de_Marg.jpg','Margalef','Spain',3,5,'2017'),
+	(5,'https://images-na.ssl-images-amazon.com/images/I/51jfOgxQ06L._SX354_BO1,204,203,200_.jpg','Squamish Bouldering','Canada',5,5,'2014'),
+	(6,'https://images-na.ssl-images-amazon.com/images/I/51zK8wuCuzL.jpg','North Wales Bouldering ','Wales ',4,4,'2017'),
+	(7,'https://rockfax.com/wp-content/uploads/2016/10/South-Wales-Sport.jpg','South Wales Sport Climbing','Wales',3,3,'2016'),
+	(8,'http://cdn.shopify.com/s/files/1/0528/9200/8604/products/SouthWalesBoulderingGuidebook.jpg?v=1648918424','South Wales Bouldering','Wales',4,3,'2022');
 
 /*!40000 ALTER TABLE `guidebooks` ENABLE KEYS */;
 UNLOCK TABLES;

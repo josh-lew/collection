@@ -19,7 +19,7 @@ return $db;
  * @return array
  */
 function fetchAllDB($db): array {
-$query = $db->prepare("SELECT `bookName`, `country`, `bookRating`, `destinationRating`, `year` FROM `guidebooks`;");
+$query = $db->prepare("SELECT `imgURL`, `bookName`, `country`, `bookRating`, `destinationRating`, `year` FROM `guidebooks`;");
 $query->execute();
 return $query->fetchAll(); 
 }
@@ -41,12 +41,14 @@ function displayBooks(array $books) {
     } else {
         
         foreach ($books as $book) {
-        
+            
+            $result .= '<div class="bookContainer"><p><img class="gBookImg" src="' . $book['imgURL'] .'"></p>';
             $result .= '<p>Name: ' . $book['bookName'] . '</p>';
             $result .= '<p>Country: ' . $book['country'] . '</p>';
             $result .= '<p>Book Rating: ' . $book['bookRating'] . '</p>';
             $result .= '<p>Destination Rating: ' . $book['destinationRating'] . '</p>';
-            $result .= '<p>Published: ' . $book['year'] . '</p><br><br>';
+            $result .= '<p>Published: ' . $book['year'] . '</p></div>';
+            
         }
         return $result;
     }
