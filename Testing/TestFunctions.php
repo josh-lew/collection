@@ -8,9 +8,9 @@ class TestFunctions extends TestCase {
     public function testSuccessDisplayBooks()
     {
         //expected result of the test
-        $expected = '<p>Name: ' . "book" . '</p>' . '<p>Country: ' . "narnia" . '</p>' . '<p>Book Rating: ' . 4 . '</p>' . '<p>Destination Rating: ' . 5 . '</p>' . '<p>Published: ' . 2002 . '</p><br><br>';
+        $expected = '<div class="bookContainer"><p><img class="gBookImg" src="' . 'https://images-na.ssl-images-amazon.com/images/I/61hGG71AzHL.jpg' .'"></p><p>Name: ' . "book" . '</p>' . '<p>Country: ' . "narnia" . '</p>' . '<p>Book Rating: ' . 4 . '</p>' . '<p>Destination Rating: ' . 5 . '</p>' . '<p>Published: ' . 2002 . '</p></div>';
         //input for the test to get the result
-        $testInput1 = [['bookName' => "book", 'country' => "narnia", 'bookRating' => 4, 'destinationRating' => 5, 'year' => 2002]];
+        $testInput1 = [['imgURL' => 'https://images-na.ssl-images-amazon.com/images/I/61hGG71AzHL.jpg', 'bookName' => "book", 'country' => "narnia", 'bookRating' => 4, 'destinationRating' => 5, 'year' => 2002]];
         //run the real function with the input
         $case = displayBooks($testInput1);
         //compare the expected result with the actual result

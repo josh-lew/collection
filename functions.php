@@ -7,9 +7,9 @@
  * @return PDO
  */
 function connectDB(): PDO {
-$db = new PDO('mysql:host=db; dbname=CollectionGB', 'root', 'password');
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-return $db;
+    $db = new PDO('mysql:host=db; dbname=CollectionGB', 'root', 'password');
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    return $db;
 }
 
 /**
@@ -19,9 +19,9 @@ return $db;
  * @return array
  */
 function fetchAllDB($db): array {
-$query = $db->prepare("SELECT `imgURL`, `bookName`, `country`, `bookRating`, `destinationRating`, `year` FROM `guidebooks`;");
-$query->execute();
-return $query->fetchAll(); 
+    $query = $db->prepare("SELECT `imgURL`, `bookName`, `country`, `bookRating`, `destinationRating`, `year` FROM `guidebooks`;");
+    $query->execute();
+    return $query->fetchAll(); 
 }
 
 /**
