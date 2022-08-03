@@ -14,33 +14,23 @@ if (isset ($_POST['submitGuidebook'])) {
         $userImgURL = 'https://static.vecteezy.com/system/resources/previews/002/398/513/original/blank-book-cover-free-vector.jpg';
     }
 
-$validateBook = validateGuidebook($userGuideBookName);
-$validateCountry = validateCountry($userCountry);
-$validateYear = validateBookYear($userBookYear);
-$validateBookRating = validateBookRating($userBookRating);
-$validateDestinationRating = validateDestinationRating($userDestinationRating);
-$validateURL = validateURL($userImgURL);
+    $validateBook = validateGuidebook($userGuideBookName);
+    $validateCountry = validateCountry($userCountry);
+    $validateYear = validateBookYear($userBookYear);
+    $validateBookRating = validateBookRating($userBookRating);
+    $validateDestinationRating = validateDestinationRating($userDestinationRating);
+    $validateURL = validateURL($userImgURL);
 
 
-    if ($validateBook === true && $validateCountry === true && $validateYear === true && $validateBookRating === true && $validateDestinationRating === true && $validateURL === true) {
+    if ($validateBook && $validateCountry && $validateYear  && $validateBookRating && $validateDestinationRating && $validateURL) {
 
-    $db = new PDO('mysql:host=db; dbname=CollectionGB', 'root', 'password');
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $db = connectDB();
+    $insertDB = insertAllDB($db, $userGuideBookName, $userCountry, $userBookYear, $userBookRating, $userDestinationRating, $userImgURL);
     
-    $query = $db->prepare("INSERT INTO `guidebooks` (`imgURL`,`bookName`, `country`, `bookRating`, `destinationRating`, `year`) VALUES (:userImgURL, :userGuideBookName, :userCountry, :userBookRating, :userDestinationRating, :userBookYear);");
-    
-    $query->bindParam(':userGuideBookName', $userGuideBookName);
-    $query->bindParam(':userCountry', $userCountry);
-    $query->bindParam(':userBookYear', $userBookYear);
-    $query->bindParam(':userBookRating', $userBookRating);
-    $query->bindParam(':userDestinationRating', $userDestinationRating);
-    $query->bindParam(':userImgURL', $userImgURL);
-    
-    $query->execute();
 
-} else {
-    echo 'Please add all the specified guidebook details';
-}
+  } else {
+      echo 'Please add all the specified guidebook details';
+  }
 
 }
 ?>

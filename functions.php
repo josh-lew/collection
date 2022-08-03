@@ -22,6 +22,30 @@ function fetchAllDB($db): array {
     $query->execute();
     return $query->fetchAll(); 
 }
+/**
+ * Inserts user submitted data into the database
+ *
+ * @param [type] $db
+ * @param string $userGuideBookName
+ * @param string $userCountry
+ * @param integer $userBookYear
+ * @param integer $userBookRating
+ * @param integer $userDestinationRating
+ * @param string $userImgURL
+ * @return void
+ */
+function insertAllDB($db, string $userGuideBookName, string $userCountry, int $userBookYear, int $userBookRating, int $userDestinationRating, string $userImgURL) {
+    $query = $db->prepare("INSERT INTO `guidebooks` (`imgURL`,`bookName`, `country`, `bookRating`, `destinationRating`, `year`) VALUES (:userImgURL, :userGuideBookName, :userCountry, :userBookRating, :userDestinationRating, :userBookYear);");
+    
+    $query->bindParam(':userGuideBookName', $userGuideBookName);
+    $query->bindParam(':userCountry', $userCountry);
+    $query->bindParam(':userBookYear', $userBookYear);
+    $query->bindParam(':userBookRating', $userBookRating);
+    $query->bindParam(':userDestinationRating', $userDestinationRating);
+    $query->bindParam(':userImgURL', $userImgURL);
+    
+    $query->execute();
+}
 
 /**
  * Takes data from the database and separates it out 
@@ -60,13 +84,12 @@ function displayBooks(array $books) {
  * @param string $guidebook
  * @return void
  */
-function validateGuidebook(string $guidebook) {
+function validateGuidebook(string $guidebook): bool {
     if (strlen($guidebook) <= 50 && strlen($guidebook) > 0) {
         filter_var($guidebook, FILTER_UNSAFE_RAW);
         return true;
     } else {
         return false;
-        echo 'Please insert Guidebook name.';
     }
 }
 
@@ -76,13 +99,12 @@ function validateGuidebook(string $guidebook) {
  * @param string $country
  * @return void
  */
-function validateCountry(string $country) {
+function validateCountry(string $country): bool {
     if(strlen($country) <= 20 && strlen($country) > 0) {
         filter_var($country, FILTER_UNSAFE_RAW);
         return true;
     } else {
         return false;
-        echo 'Please insert Country.';
     }
 }
 
@@ -92,13 +114,12 @@ function validateCountry(string $country) {
  * @param integer $year
  * @return void
  */
-function validateBookYear(int $year) {
+function validateBookYear(int $year): bool {
     if ($year >= 1850 && $year <= 2022) {
         filter_var($year, FILTER_VALIDATE_INT);
         return true;
     } else {
         return false;
-        echo 'Please enter a year between 1850 and 2022.';
     }
 }
 
@@ -108,13 +129,12 @@ function validateBookYear(int $year) {
  * @param integer $bookRating
  * @return void
  */
-function validateBookRating(int $bookRating) {
+function validateBookRating(int $bookRating): bool {
     if ($bookRating <=5 && $bookRating > 0) {
         filter_var($bookRating, FILTER_VALIDATE_INT);
         return true;
     } else {
         return false;
-        echo 'Please enter a book rating between 1 and 5.';
     }
 }
 
@@ -124,13 +144,12 @@ function validateBookRating(int $bookRating) {
  * @param integer $destinationRating
  * @return void
  */
-function validateDestinationRating(int $destinationRating) {
+function validateDestinationRating(int $destinationRating): bool {
     if ($destinationRating <=5 && $destinationRating > 0) {
         filter_var($destinationRating, FILTER_VALIDATE_INT);
         return true;
     } else {
         return false;
-        echo 'Please enter a destination rating between 1 and 5.';
     }
 }
 
@@ -140,7 +159,7 @@ function validateDestinationRating(int $destinationRating) {
  * @param string $URL
  * @return void
  */
-function validateURL(string $URL) {
+function validateURL(string $URL): bool {
     if (strlen ($URL) < 1000) {
         filter_var($URL, FILTER_VALIDATE_URL);
         return true;
