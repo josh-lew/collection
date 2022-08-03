@@ -38,29 +38,11 @@ $validateURL = validateURL($userImgURL);
     
     $query->execute();
 
-
 } else {
     echo 'Please add all the specified guidebook details';
 }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
 
 <html lang="en-gb">
@@ -108,13 +90,7 @@ $validateURL = validateURL($userImgURL);
             </form>
         </section>
 
-
-
-
-
         <img src="https://cdn.emojidex.com/emoji/seal/%E5%85%AB%E5%92%AB%E7%83%8F.png?1421323989">
-
     </main>
-
 
 </body>

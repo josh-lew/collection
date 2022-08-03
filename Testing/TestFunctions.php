@@ -74,11 +74,6 @@ class TestFunctions extends TestCase {
         $case = validateGuidebook($testInput1, FILTER_UNSAFE_RAW);
     } 
 
-
-
-
-
-
     public function testSuccessValidateCountry()
     {
         //expected result of the test
@@ -112,9 +107,6 @@ class TestFunctions extends TestCase {
         //run the real function with the input
         $case = validateCountry($testInput1, FILTER_UNSAFE_RAW);
     } 
-
-
-
 
     public function testSuccessValidateBookYear()
     {
@@ -150,9 +142,6 @@ class TestFunctions extends TestCase {
         $case = validateBookYear($testInput1, FILTER_VALIDATE_INT);
     } 
 
-
-
-
     public function testSuccessValidateBookRating()
     {
         //expected result of the test
@@ -186,9 +175,6 @@ class TestFunctions extends TestCase {
         //run the real function with the input
         $case = validateBookRating($testInput1, FILTER_VALIDATE_INT);
     } 
-
-
-
 
     public function testSuccessValidateDestinationRating()
     {
@@ -224,10 +210,6 @@ class TestFunctions extends TestCase {
         $case = validateDestinationRating($testInput1, FILTER_VALIDATE_INT);
     } 
 
-
-
-
-
     public function testSuccessValidateURL()
     {
         //expected result of the test
@@ -261,10 +243,6 @@ class TestFunctions extends TestCase {
         //run the real function with the input
         $case = validateURL($testInput1, FILTER_VALIDATE_URL);
     } 
-
-
-
-
 }
 
 

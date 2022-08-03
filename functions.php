@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Connects to database
  *
@@ -134,7 +133,6 @@ function validateDestinationRating(int $destinationRating) {
         echo 'Please enter a destination rating between 1 and 5.';
     }
 }
-
 
 /**
  * Checks the user has entered a value for 'URL', validates it and confirms its within the specificed string length.
