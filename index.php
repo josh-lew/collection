@@ -5,10 +5,6 @@ require_once "functions.php";
 $db = connectDB();
 $books = fetchAllDB($db);
 
-// echo displayBooks($books);
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +25,7 @@ $books = fetchAllDB($db);
     </div>
   
     <div>
-      <p>Add a Book</p>
+      <a href="addBook.php">Add a Book</a>
     </div>
 </nav>
 
