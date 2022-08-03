@@ -23,9 +23,6 @@ $validateURL = validateURL($userImgURL);
 
 
     if ($validateBook === true && $validateCountry === true && $validateYear === true && $validateBookRating === true && $validateDestinationRating === true && $validateURL === true) {
-        echo 'success!!';
-
-
 
     $db = new PDO('mysql:host=db; dbname=CollectionGB', 'root', 'password');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -42,12 +39,8 @@ $validateURL = validateURL($userImgURL);
     $query->execute();
 
 
-echo '<pre>';
-var_dump($userImgURL);
-echo '</pre>';
-
 } else {
-    echo 'mega sad';
+    echo 'Please add all the specified guidebook details';
 }
 
 }
