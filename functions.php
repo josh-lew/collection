@@ -18,7 +18,7 @@ function connectDB(): PDO {
  * @return array
  */
 function fetchAllDB($db): array {
-    $query = $db->prepare("SELECT `imgURL`, `bookName`, `country`, `bookRating`, `destinationRating`, `year` FROM `guidebooks`;");
+    $query = $db->prepare("SELECT `id`, `imgURL`, `bookName`, `country`, `bookRating`, `destinationRating`, `year` FROM `guidebooks` WHERE `deleted` = 0;");
     $query->execute();
     return $query->fetchAll(); 
 }
@@ -70,7 +70,7 @@ function displayBooks(array $books) {
             $result .= '<p>Country: ' . $book['country'] . '</p>';
             $result .= '<p>Book Rating: ' . $book['bookRating'] . '</p>';
             $result .= '<p>Destination Rating: ' . $book['destinationRating'] . '</p>';
-            $result .= '<p>Published: ' . $book['year'] . '</p></div>';
+            $result .= '<p>Published: ' . $book['year'] . '</p><form action="index.php" method="POST"><input type="hidden" name="delete" value="' . $book['id'] . '"><button class="deleteButton">Delete</button></form></div>';
             
         }
         return $result;
@@ -166,6 +166,21 @@ function validateURL(string $URL): bool {
     } else {
         return false;
     }
+}
+
+/**
+ * Deletes a guidebook - enters a 1 into the delete column in database which is filtered out during the initial fetch request.
+ *
+ * @param [type] $db
+ * @param integer $deleteID
+ * @return void
+ */
+function deleteBook($db, int $deleteID) {
+    $query = $db->prepare("UPDATE `guidebooks` SET `deleted` = 1 WHERE `id` = :id;");
+    
+    $query->bindParam(':id', $deleteID);
+
+    $query->execute();
 }
 
 

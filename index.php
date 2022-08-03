@@ -3,8 +3,12 @@
 require_once "functions.php";
 
 $db = connectDB();
-$books = fetchAllDB($db);
 
+if (isset($_POST['delete'])) {
+  $deleteID = deleteBook($db, $_POST['delete']);
+}
+
+$books = fetchAllDB($db);
 ?>
 
 <!DOCTYPE html>
