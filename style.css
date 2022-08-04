@@ -34,8 +34,6 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     /* margin-left: 100px; */
-    
-
 }
 
 .bookContainer {
@@ -44,5 +42,8 @@ img {
     background-color: #9bc1bc;
 }
 
-
-
+.bookFormContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}

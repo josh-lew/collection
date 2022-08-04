@@ -16,6 +16,7 @@ $books = fetchAllDB($db);
 <head>
   <title>Guidebooks</title>
     <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="normalize.css" type="text/css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Uchen&display=swap" rel="stylesheet">

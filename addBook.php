@@ -39,6 +39,7 @@ if (isset ($_POST['submitGuidebook'])) {
 <head>
   <title>Guidebooks</title>
     <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="normalize.css" type="text/css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Uchen&display=swap" rel="stylesheet">
@@ -56,7 +57,8 @@ if (isset ($_POST['submitGuidebook'])) {
     </div>
 </nav>
     <main>
-        <section>
+      <div class="bookFormContainer">
+        <section class="bookForm">
             <form action="addBook.php" method="post">
                 <label>Guidebook Name:</label><br>
                 <input type="text" name="guidebookName" value=""/><br>
@@ -77,10 +79,11 @@ if (isset ($_POST['submitGuidebook'])) {
                 <input type="text" name="imgURL" value=""/><br>
                 
                 <input type="submit" name="submitGuidebook" value="submit"/>
-            </form>
-        </section>
 
-        <img src="https://cdn.emojidex.com/emoji/seal/%E5%85%AB%E5%92%AB%E7%83%8F.png?1421323989">
+            </form>
+            <img src="https://cdn.emojidex.com/emoji/seal/%E5%85%AB%E5%92%AB%E7%83%8F.png?1421323989">
+        </section>
+      </div>
     </main>
 
 </body>
