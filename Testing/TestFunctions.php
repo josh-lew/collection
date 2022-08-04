@@ -5,12 +5,45 @@ require_once '../functions.php';
 use PHPUnit\Framework\TestCase;
 
 class TestFunctions extends TestCase {
+    public function testSuccessDisplayStars()
+    {
+        //expected result of the test
+        $expected = '<img class="star" src="images/star.png" width:"2px" height:"auto"><img class="star" src="images/star.png" width:"2px" height:"auto"><img class="star" src="images/star.png" width:"2px" height:"auto"><img class="star" src="images/star.png" width:"2px" height:"auto">';
+        //input for the test to get the result
+        $testInput1 = 4;
+        //run the real function with the input
+        $case = displayStars($testInput1);
+        //compare the expected result with the actual result
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testFailureDisplayStars()
+    {
+        //expected result of the test
+        $expected = "";
+        //input for the test to get the result
+        $testInput1 = 0;
+        //run the real function with the input
+        $case = displayStars($testInput1);
+        //compare the expected result with the actual result
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testMalformedDisplayStars()
+    {
+        //input for the test to get the result
+        $testInput1 = [1, 2, 3];
+        // tell phpunit it should expect an error to be thrown
+        $this->expectException(TypeError::class);
+        //run the real function with the input
+        $case = displayStars($testInput1);
+    } 
     public function testSuccessDisplayBooks()
     {
         //expected result of the test
-        $expected = '<div class="bookContainer"><p><img class="gBookImg" src="' . 'https://images-na.ssl-images-amazon.com/images/I/61hGG71AzHL.jpg' .'"></p><p>Name: ' . "book" . '</p>' . '<p>Country: ' . "narnia" . '</p>' . '<p>Book Rating: ' . 4 . '</p>' . '<p>Destination Rating: ' . 5 . '</p>' . '<p>Published: ' . 2002 . '</p></div>';
+        $expected = '<div class="bookContainer"><p><img class="gBookImg" src="https://images-na.ssl-images-amazon.com/images/I/61hGG71AzHL.jpg"></p><h3>book</h3><h4>narnia</h4><p>Book Rating: <br><img class="star" src="images/star.png" width:"2px" height:"auto"></p><p>Destination Rating: <br><img class="star" src="images/star.png" width:"2px" height:"auto"></p><p>2002</p><form action="index.php" method="POST"><input type="hidden" name="delete" value="1"><button class="deleteButton">Delete</button></form></div>';
         //input for the test to get the result
-        $testInput1 = [['imgURL' => 'https://images-na.ssl-images-amazon.com/images/I/61hGG71AzHL.jpg', 'bookName' => "book", 'country' => "narnia", 'bookRating' => 4, 'destinationRating' => 5, 'year' => 2002]];
+        $testInput1 = [['id' => 1, 'imgURL' => 'https://images-na.ssl-images-amazon.com/images/I/61hGG71AzHL.jpg', 'bookName' => "book", 'country' => "narnia", 'bookRating' => 1, 'destinationRating' => 1, 'year' => 2002]];
         //run the real function with the input
         $case = displayBooks($testInput1);
         //compare the expected result with the actual result
@@ -243,6 +276,8 @@ class TestFunctions extends TestCase {
         //run the real function with the input
         $case = validateURL($testInput1, FILTER_VALIDATE_URL);
     } 
+
 }
+
 
 
