@@ -29,7 +29,7 @@ $books = fetchAllDB($db);
       <h1>Josh's Guidebook Collection</h1>
     </div>
   
-    <div>
+    <div class="pageLink">
       <a href="addBook.php">Add a Book</a>
     </div>
 </nav>

@@ -31,8 +31,9 @@ if (isset ($_POST['submitGuidebook'])) {
   } else {
       echo 'Please add all the specified guidebook details';
   }
-
 }
+
+
 ?>
 
 <html lang="en-gb">
@@ -52,7 +53,7 @@ if (isset ($_POST['submitGuidebook'])) {
       <h1>Josh's Guidebook Collection</h1>
     </div>
   
-    <div>
+    <div class="pageLink">
       <a href="index.php">Return</a>
     </div>
 </nav>

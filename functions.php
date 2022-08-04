@@ -68,16 +68,30 @@ function displayBooks(array $books) {
         foreach ($books as $book) {
             
             $result .= '<div class="bookContainer"><p><img class="gBookImg" src="' . $book['imgURL'] .'"></p>';
-            $result .= '<p>Name: ' . $book['bookName'] . '</p>';
-            $result .= '<p>Country: ' . $book['country'] . '</p>';
-            $result .= '<p>Book Rating: ' . $book['bookRating'] . '</p>';
-            $result .= '<p>Destination Rating: ' . $book['destinationRating'] . '</p>';
-            $result .= '<p>Published: ' . $book['year'] . '</p><form action="index.php" method="POST"><input type="hidden" name="delete" value="' . $book['id'] . '"><button class="deleteButton">Delete</button></form></div>';
+            $result .= '<h3>' . $book['bookName'] . '</h3>';
+            $result .= '<h4>' . $book['country'] . '</h4>';
+            $result .= '<p>Book Rating: <br>' . displayStars($book['bookRating']) . '</p>';
+            $result .= '<p>Destination Rating: <br>' . displayStars($book['destinationRating']) . '</p>';
+            $result .= '<p>' . $book['year'] . '</p><form action="index.php" method="POST"><input type="hidden" name="delete" value="' . $book['id'] . '"><button class="deleteButton">Delete</button></form></div>';
             
         }
         return $result;
     }
     
+}
+
+/**
+ * function produces an image of a star based on a provided int (number rating)
+ *
+ * @param integer $testRating
+ * @return string
+ */
+function displayStars(int $testRating): string {
+    $stars = "";
+    for ($n=0; $n < $testRating; $n++) {
+        $stars .= '<img class="star" src="images/star.png" width:"2px" height:"auto">';
+    } 
+    return $stars;
 }
 
 /**
