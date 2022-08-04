@@ -4,9 +4,9 @@ require_once "functions.php";
 
 $db = connectDB();
 
-if (isset($_POST['delete'])) {
+if (isset($_POST['delete']) && is_numeric($_POST['delete'])) {
   $deleteID = deleteBook($db, $_POST['delete']);
-}
+  }
 
 $books = fetchAllDB($db);
 ?>

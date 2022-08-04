@@ -17,7 +17,8 @@ function connectDB(): PDO {
  * @param [type] $db
  * @return array
  */
-function fetchAllDB($db): array {
+function fetchAllDB(PDO $db): array 
+{
     $query = $db->prepare("SELECT `id`, `imgURL`, `bookName`, `country`, `bookRating`, `destinationRating`, `year` FROM `guidebooks` WHERE `deleted` = 0;");
     $query->execute();
     return $query->fetchAll(); 
@@ -34,7 +35,8 @@ function fetchAllDB($db): array {
  * @param string $userImgURL
  * @return void
  */
-function insertAllDB($db, string $userGuideBookName, string $userCountry, int $userBookYear, int $userBookRating, int $userDestinationRating, string $userImgURL) {
+function insertAllDB(PDO $db, string $userGuideBookName, string $userCountry, int $userBookYear, int $userBookRating, int $userDestinationRating, string $userImgURL) 
+{
     $query = $db->prepare("INSERT INTO `guidebooks` (`imgURL`,`bookName`, `country`, `bookRating`, `destinationRating`, `year`) VALUES (:userImgURL, :userGuideBookName, :userCountry, :userBookRating, :userDestinationRating, :userBookYear);");
     
     $query->bindParam(':userGuideBookName', $userGuideBookName);
