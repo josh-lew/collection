@@ -17,33 +17,103 @@ nav {
     background-color: #30332E;
     padding: 20px 150px;
     color: white;
+    align-items: center;
+    width: 100%;
 }
 
 main {
 	background-color: #d0d1d3;
 	width: 100%;
-	height: 700px;
+	height: 100%;
 }
 img {
     height: 200px;
     width: auto;
 }
 
-
 .bookGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     /* margin-left: 100px; */
+    gap: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .bookContainer {
     text-align: center;
     padding-top: 50px;
     background-color: #9bc1bc;
+    border: 5px solid black ;
+    
 }
+
 
 .bookFormContainer {
     display: flex;
     justify-content: center;
     padding-top: 50px;
+}
+
+a:link { 
+	text-decoration: none;
+}
+
+a:visited { 
+	text-decoration: none;
+    color: white; 
+}
+
+a:hover { 
+	text-decoration: none;
+	color: #1d7e2b;
+}
+
+a:active { 
+	text-decoration: none; 
+}
+
+
+@media screen and (max-width: 1300px) {
+
+.bookGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+}
+
+@media screen and (max-width: 1000px) {
+
+    .bookGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .bookGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    .bookGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
 }
