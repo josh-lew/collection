@@ -32,8 +32,6 @@ if (isset ($_POST['submitGuidebook'])) {
       echo 'Please add all the specified guidebook details';
   }
 }
-
-
 ?>
 
 <html lang="en-gb">
